@@ -127,20 +127,16 @@ let g:ale_python_pylsp_config = {
 let g:ale_python_mypy_options = "--ignore-missing-imports"
 let g:ale_python_mypy_ignore_invalid_syntax = 1
 
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
+"let g:vimtex_view_general_viewer = 'okular'
+"let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-n>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsEditSplit="vertical"
 " This setting might disabe third-party snippets
 "let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 call plug#begin('~/.vim/plugged')
-
-Plug 'lervag/vimtex'
-Plug 'SirVer/UltiSnips'
-Plug 'honza/vim-snippets'
 
 call plug#end()
