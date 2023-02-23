@@ -1,0 +1,113 @@
+{
+    "output": "HDMI-A-1",
+    // "layer": "bottom", // Waybar at top layer
+    // "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 20, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces#main", "sway/workspaces#vert", "sway/workspaces#third", "sway/mode"],
+    //"modules-center": ["sway/window"],
+    "modules-right": ["custom/backlight", "pulseaudio", "network", "cpu",
+        "memory", "temperature", "sway/language",
+        "clock", "clock#UTC", "tray"],
+    // Modules configuration
+    "sway/workspaces#main": {
+        //"all-outputs": true
+        "for-output": "DP-2"
+    },
+    "sway/workspaces#vert": {
+        "for-output": "HDMI-A-1"
+    },
+    "sway/workspaces#third": {
+        "for-output": "DP-1"
+    },
+    "sway/window": {
+        "all-outputs": true
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        //"format-alt": "{:%Y-%m-%d}"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a. %d.%m.%Y %H:%M:%S}",
+        "interval": 1
+    },
+    "clock#UTC": {
+        "timezone": "UTC",
+        "format": "{:%H:%M:%S} Z",
+        "interval": 1
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp3_input",
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    /*
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    */
+    "custom/backlight": {
+        "exec": "~/C/verybright",
+        "interval": 1,
+        "format": "{} ",
+        "tooltip": false
+    },
+    "network": {
+        "format-ethernet": "{ipaddr}",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "Connecting...",
+        "format-disconnected": "Disconnected ⚠"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-muted": " ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+    // vim: ft=jsonc
+}
+
