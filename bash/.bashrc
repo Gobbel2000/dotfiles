@@ -41,8 +41,7 @@ alias gerp='grep -rnI --color'
 
 # Set the terminal prompt
 # setaf = text color, 14=cyan, 15=white, 2=green, 11=yellow, 1=red
-cyan='\[$(tput setaf 14)\]'
-green='\[$(tput setaf 2)\]'
+prompt='\[$(tput setaf 161)\]'
 white='\[$(tput setaf 15)\]'
 red='\[$(tput setaf 1)\]'
 bold='\[$(tput bold)\]'
@@ -70,7 +69,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
-PROMPT_COMMAND='update_prompt; __git_ps1 "$p_venv[${green}${bold}\u@\h${white} \W" "$reset]$p_end " " | %s"'
+PROMPT_COMMAND='update_prompt; __git_ps1 "$p_venv[${prompt}${bold}\u@\h${white} \W" "$reset]$p_end " " | %s"'
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 
 # This automatically prepends `cd` when entering just a path
