@@ -5,7 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#source /usr/share/blesh/ble.sh --noattach
+
+
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
 
