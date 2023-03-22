@@ -96,7 +96,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
-precmd () { update_prompt; __git_ps1 "${p_venv}[%F{14}%B%n@%M%F{white} %1~" "%b%f]%(?.%(!.#.$).%F{red}%?%f) " " |%%b%%f %s" }
+precmd () { update_prompt; __git_ps1 "${p_venv}[%F{10}%B%n@%M%F{white} %1~" "%b%f]%(?.%(!.#.$).%F{red}%?%f) " " |%%b%%f %s" }
 
 export EDITOR=vim
 CDPATH=:~:~/3dp
