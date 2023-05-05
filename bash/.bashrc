@@ -38,6 +38,7 @@ alias ls='ls --color=auto'
 alias ll='ls --color=auto -Alh'
 alias rm='rm -I'
 alias gerp='grep -rnI --color'
+alias tree='tree -C'
 
 # Set the terminal prompt
 # setaf = text color, 14=cyan, 15=white, 2=green, 11=yellow, 1=red
