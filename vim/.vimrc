@@ -120,7 +120,9 @@ nmap <silent> <C-p> <Plug>(ale_go_to_definition)
 
 let g:ale_linters = {
             \'python': ['ruff', 'mypy', 'pylsp'],
-            \'rust': ['analyzer']
+            \'rust': ['analyzer'],
+            \'bash': ['shellcheck'],
+            \'sh': ['shellcheck']
             \}
 let g:ale_linters_explicit = 1
 let g:ale_python_pylsp_config = {
