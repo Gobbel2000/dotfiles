@@ -144,5 +144,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
 Plug 'SirVer/UltiSnips'
 Plug 'honza/vim-snippets'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
