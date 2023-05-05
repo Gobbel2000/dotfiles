@@ -15,6 +15,7 @@ alias ll='ls --color=auto -Alh'
 alias rm='rm -I'
 alias dupe='kitty --single-instance --directory $(pwd)'
 alias gerp='grep -rnI --color'
+alias tree='tree -C'
 alias kssh='kitty +kitten ssh'
 alias icat='kitty +kitten icat'
 
