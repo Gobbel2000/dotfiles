@@ -161,4 +161,6 @@ let g:ale_python_mypy_ignore_invalid_syntax = 1
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'dense-analysis/ale'
+
 call plug#end()
