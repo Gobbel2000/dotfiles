@@ -6,14 +6,8 @@ alias kr='sudo systemctl restart klipper.service'
 alias ks='sudo systemctl stop klipper.service'
 alias kk='sudo systemctl --signal 9 kill klipper.service && sudo systemctl stop klipper.service'
 
-alias l1='tail -f -n +1 /tmp/klippy.log'
-
-l2()
-{
-    last=$(ls /tmp/kgui/ | sed "s/^kgui-//" | sort -n | tail -n 1)
-    tail -f -n +1 "/tmp/kgui/kgui-$last"
-}
-
-alias l3='tail -f -n +1 /tmp/cura_connection.log'
+alias l1='tail -f -n +1 ~/.local/share/klippo/logs/klippy.log'
+alias l2='tail -f -n +1 ~/.local/share/klippo/logs/kgui.log'
+alias l3='tail -f -n +1 ~/.local/share/klippo/logs/cura_connection.log'
 
 CDPATH=:~/klippo:~/klippo/klippy:~/klippo/klippy/extras:~/klippo/klippy/parallel_extras
