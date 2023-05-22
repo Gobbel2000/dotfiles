@@ -79,9 +79,9 @@ else
   endif
 endif
 
-if &diff
-    colorscheme pablo
-endif
+"if &diff
+"    colorscheme pablo
+"endif
 
 set background=dark
 
@@ -97,6 +97,9 @@ set textwidth=79
 nmap <silent> <C-j> <Plug>(ale_previous_wrap)
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 nmap <silent> <C-p> <Plug>(ale_go_to_definition)
+
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
 
 let g:ale_linters = {
             \'python': ['ruff', 'mypy', 'pylsp'],
