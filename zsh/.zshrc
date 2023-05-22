@@ -81,6 +81,7 @@ alias gerp='grep -rnI --color --exclude-dir=.mypy_cache'
 alias tree='tree -C'
 alias kssh='kitty +kitten ssh'
 alias icat='kitty +kitten icat'
+alias e='nvim'
 
 p_end=""
 p_venv=""
@@ -99,5 +100,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 
 precmd () { update_prompt; __git_ps1 "${p_venv}[%F{14}%B%n@%M%F{white} %1~" "%b%f]%(?.%(!.#.$).%F{red}%?%f) " " |%%b%%f %s" }
 
-export EDITOR=vim
+export EDITOR=nvim
+#export MANPAGER="vim +MANPAGER --not-a-term -"
+export MANPAGER='nvim +Man!'
 CDPATH=:~:~/3dp
