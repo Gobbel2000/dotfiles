@@ -1,0 +1,9 @@
+{
+  "lazy.nvim": { "branch": "main", "commit": "b382495d512fbc6dadbeac8b806efc72db7130e8" },
+  "nightfox.nvim": { "branch": "main", "commit": "77aa7458d2b725c2d9ff55a18befe1b891ac473e" },
+  "nvim-lint": { "branch": "master", "commit": "e03f2656d9d7c80929bf47f5ac71a5f23183510c" },
+  "nvim-lspconfig": { "branch": "master", "commit": "10142ff298f5fc3f8bf9d277c806593401b0fd06" },
+  "ultisnips": { "branch": "master", "commit": "0ad238b1910d447476b2d98f593322c1cdb71285" },
+  "vim-snippets": { "branch": "master", "commit": "76e35f37aa9e47a8b7f2909de222844ae38c7007" },
+  "vimtex": { "branch": "master", "commit": "e9ad2be22855523f95f564302e72e2ef3d1f2386" }
+}
