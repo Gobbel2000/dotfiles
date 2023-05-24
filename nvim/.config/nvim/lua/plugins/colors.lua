@@ -1,0 +1,49 @@
+return {
+    {
+        "EdenEast/nightfox.nvim",
+        enabled = colorplug:match("fox$"),
+
+        -- Options for colorschemes
+        lazy = false,
+        priority = 1000,
+
+        opts = {
+            options = {
+                styles = {
+                    comments = "italic"
+                }
+            },
+            specs = {
+                all = {
+                    syntax = {
+                        comment = "cyan.bright"
+                    }
+                }
+            }
+        },
+        config = function(spec, opts)
+            require("nightfox").setup(opts)
+            vim.cmd.colorscheme(colorplug)
+        end,
+    },
+
+    {
+        "navarasu/onedark.nvim",
+        enabled = colorplug == "onedark",
+
+        lazy = false,
+        priority = 1000,
+
+        config = function()
+            onedark = require('onedark')
+            onedark.setup {
+                style = "deep",
+                highlights = {
+                    ["@comment"] = { fg = "$cyan" },
+                    ["Comment"] = { fg = "$cyan" },
+                }
+            }
+            onedark.load()
+        end,
+    },
+}

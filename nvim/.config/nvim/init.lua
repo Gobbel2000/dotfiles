@@ -19,6 +19,20 @@ vim.o.cursorline = true
 vim.o.autowriteall = true
 vim.o.textwidth = 79
 
+vim.o.showmode = false
+--vim.o.showcmdloc = "statusline"
+--vim.o.commandheight = 0
+
+-- Global mappings from nvim-lspconfig, but also relevant for nvim-lint
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+-- Used to determine which colorscheme plugin to load, disabling the rest
+colorplug = "nightfox"
+
 -- Bootstrap lazy package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -34,6 +48,15 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 -- Load/Install all plugins as configured in lua/plugins/*.lua
-require("lazy").setup("plugins")
-
-vim.cmd.colorscheme("nightfox")
+require("lazy").setup("plugins", {
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                --"netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+            }
+        }
+    }
+})
