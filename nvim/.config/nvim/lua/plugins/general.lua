@@ -16,13 +16,6 @@ function do_lsp_config ()
     lspconfig.ruff_lsp.setup {}
     lspconfig.rust_analyzer.setup {}
 
-    -- Global mappings.
-    -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-    vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -56,29 +49,6 @@ function do_lsp_config ()
 end
 
 return {
-    {
-        "EdenEast/nightfox.nvim",
-
-        -- Options for colorschemes
-        lazy = false,
-        priority = 1000,
-
-        opts = {
-            options = {
-                styles = {
-                    comments = "italic"
-                }
-            },
-            specs = {
-                all = {
-                    syntax = {
-                        --comment
-                        comment = "cyan.bright"
-                    }
-                }
-            }
-        }
-    },
 
     {
         "neovim/nvim-lspconfig",
@@ -91,12 +61,12 @@ return {
         ft = { "sh", "python" },
         main = "lint",
         config = function()
-            require("lint").linters_by_ft = {
+            local lint = require("lint")
+            lint.linters_by_ft = {
                 sh = {"shellcheck",},
                 python = {"mypy",},
             }
-        end,
-        init = function()
+            table.insert(lint.linters.mypy.args, "--ignore-missing-imports")
             vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType", "BufWritePost" }, {
                 callback = function()
                     require("lint").try_lint()
@@ -107,6 +77,10 @@ return {
 
     {
         "SirVer/ultisnips",
+        keys = {
+            { "<tab>", mode = "i" },
+            { "<c-s>", mode = "i" },
+        },
         init = function()
             vim.g.UltiSnipsExpandTrigger = "<tab>"
             vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
@@ -116,4 +90,45 @@ return {
         end,
         dependencies = { "honza/vim-snippets" },
     },
+
+    {
+        "nvim-lualine/lualine.nvim",
+        opts = {
+            options = {
+                component_separators = { left = "|", right = "|" },
+                section_separators = { left = "", right = ""},
+            },
+            sections = {
+                lualine_c = { { "filename", path = 1 } },  -- path = 1 means relative path
+                lualine_x = {
+                    --{ "%S", separator = "" },
+                    --"searchcount",
+                    --"selectioncount",
+                    "filetype",
+                },
+            },
+            inactive_sections = {
+                lualine_x = { "filetype" },
+                lualine_y = { "progress" },
+                lualine_z = { "location" },
+            },
+        },
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = function()
+            require("nvim-treesitter.install").update({ with_sync = true })
+        end,
+        config = function()
+            require("nvim-treesitter.configs").setup {
+                highlight = {
+                    enable = true,
+                }
+            }
+        end,
+    },
+
+    "fladson/vim-kitty",
 }
