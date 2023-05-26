@@ -2,7 +2,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source /usr/share/git/completion/git-prompt.sh
-#source /usr/share/git/completion/git-completion.zsh
 
 # Created by newuser for 5.8
 
@@ -81,34 +80,16 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -Alh'
-alias rm='rm -I'
-alias dupe='kitty --single-instance --directory $(pwd)'
-alias gerp='grep -rnI --color --exclude-dir=.mypy_cache'
-alias tree='tree -C'
-alias kssh='kitty +kitten ssh'
-alias icat='kitty +kitten icat'
-alias e='nvim'
-
-p_end=""
-p_venv=""
-update_prompt()
-{
-    if [[ -z "${VIRTUAL_ENV}" ]]; then
-        p_venv=""
-    else
-        p_venv="%F{11}/$(basename $VIRTUAL_ENV)/%f "
-    fi
-}
-
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
-precmd () { update_prompt; __git_ps1 "${p_venv}[%F{14}%B%n@%M%F{white} %1~" "%b%f]%(?.%(!.#.$).%F{red}%?%f) " " |%%b%%f %s" }
+function precmd {
+    local p_venv
+    [[ "${VIRTUAL_ENV}" ]] && p_venv="%F{11}/$(basename "${VIRTUAL_ENV}")/%f "
+    __git_ps1 "${p_venv}[%F{14}%B%n@%M%F{white} %1~" "%b%f]%(?.%(!.#.$).%F{red}%?%f) " " |%%b%%f %s"
+}
 
-export EDITOR=nvim
-#export MANPAGER="vim +MANPAGER --not-a-term -"
-export MANPAGER='nvim +Man!'
-CDPATH=:~:~/3dp
+if [[ -f ~/.shell-common ]]; then
+    source ~/.shell-common
+fi
