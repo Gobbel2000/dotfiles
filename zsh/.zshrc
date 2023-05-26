@@ -5,12 +5,20 @@ source /usr/share/git/completion/git-prompt.sh
 #source /usr/share/git/completion/git-completion.zsh
 
 # Created by newuser for 5.8
+
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _complete _ignored _approximate
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle ':completion:*' max-errors 2
-zstyle ':completion:*' prompt 'These are your corrections:'
+zstyle ':completion:*' completer _expand _complete _ignored _match _approximate _prefix
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '' 'l:|=* r:|=*'
+zstyle ':completion:*' match-original both
+zstyle ':completion:*' max-errors 3
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' prompt 'These are your %e corrections:'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle :compinstall filename '/home/gabriel/.zshrc'
 
 autoload -Uz compinit
