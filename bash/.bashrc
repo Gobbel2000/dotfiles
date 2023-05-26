@@ -53,16 +53,17 @@ p_end=""
 p_venv=""
 update_prompt()
 {
-    if [[ $? == 0 ]]; then
+    local RC=$?
+    if [[ $RC == 0 ]]; then
         p_end="\$"
     else
-        p_end="$red$?$reset"
+        p_end="${red}${RC}${reset}"
     fi
 
     if [[ -z "${VIRTUAL_ENV}" ]]; then
         p_venv=""
     else
-        p_venv="$yellow/$(basename $VIRTUAL_ENV)/$reset "
+        p_venv="$yellow/$(basename "${VIRTUAL_ENV}")/$reset "
     fi
 }
 
