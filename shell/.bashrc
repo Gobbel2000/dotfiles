@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # ~/.bashrc
 #
@@ -34,64 +35,48 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -Alh'
-alias rm='rm -I'
-alias gerp='grep -rnI --color'
-alias tree='tree -C'
-
 # Set the terminal prompt
 # setaf = text color, 14=cyan, 15=white, 2=green, 11=yellow, 1=red
-prompt='\[$(tput setaf 161)\]'
-white='\[$(tput setaf 15)\]'
-red='\[$(tput setaf 1)\]'
-bold='\[$(tput bold)\]'
-reset='\[$(tput sgr0)\]'
-yellow='\[$(tput setaf 11)\]'
+prompt="\[$(tput setaf 161)\]"
+white="\[$(tput setaf 15)\]"
+red="\[$(tput setaf 1)\]"
+bold="\[$(tput bold)\]"
+reset="\[$(tput sgr0)\]"
+yellow="\[$(tput setaf 11)\]"
 
-p_end=""
-p_venv=""
 update_prompt()
 {
     local RC=$?
+    local p_end
+    local p_venv
     if [[ $RC == 0 ]]; then
         p_end="\$"
     else
         p_end="${red}${RC}${reset}"
     fi
-
-    if [[ -z "${VIRTUAL_ENV}" ]]; then
-        p_venv=""
-    else
-        p_venv="$yellow/$(basename "${VIRTUAL_ENV}")/$reset "
-    fi
+    [[ "${VIRTUAL_ENV}" ]] && p_venv="$yellow/$(basename "${VIRTUAL_ENV}")/$reset "
+    __git_ps1 "${p_venv}[${prompt}${bold}\u@\h${white} \W" "${reset}]${p_end} " " |${reset} %s"
 }
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWUPSTREAM="auto"
 
-PROMPT_COMMAND='update_prompt; __git_ps1 "$p_venv[${prompt}${bold}\u@\h${white} \W" "$reset]$p_end " " | %s"'
+PROMPT_COMMAND='update_prompt'
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \$\[\033[00m\] '
 
 # This automatically prepends `cd` when entering just a path
 shopt -s autocd
-export EDITOR=vim
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 if [ -f ~/.klippo_aliases ]; then
     . ~/.klippo_aliases
+fi
+
+if [[ -f ~/.shell-common ]]; then
+    source ~/.shell-common
 fi
 
 # enable programmable completion features (you don't need to enable
