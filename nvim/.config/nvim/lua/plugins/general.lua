@@ -53,6 +53,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         ft = { "python", "rust" },
+        enabled = false,
         config = do_lsp_config,
     },
 

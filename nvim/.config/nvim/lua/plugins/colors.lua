@@ -21,9 +21,13 @@ return {
                 }
             }
         },
+
         config = function(spec, opts)
             require("nightfox").setup(opts)
             vim.cmd.colorscheme(colorplug)
+            -- Avoid stuttering on low-power devices
+            -- https://github.com/neovim/neovim/issues/23590
+            vim.cmd.highlight("clear", "CurSearch")
         end,
     },
 
