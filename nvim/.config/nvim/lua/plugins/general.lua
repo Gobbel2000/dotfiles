@@ -81,6 +81,7 @@ return {
             { "<tab>", mode = "i" },
             { "<c-s>", mode = "i" },
         },
+        ft = { "snippets" },
         init = function()
             vim.g.UltiSnipsExpandTrigger = "<tab>"
             vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
@@ -95,10 +96,17 @@ return {
         "nvim-lualine/lualine.nvim",
         opts = {
             options = {
-                component_separators = { left = "|", right = "|" },
-                section_separators = { left = "", right = ""},
+                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = ""},
             },
             sections = {
+                lualine_a = { { "mode", fmt = function(mode)
+                    -- Ensure that all mode strings have the same length
+                    if #mode < 7 then
+                        mode = mode .. string.rep(" ", 7 - #mode)
+                    end
+                    return mode
+                end } },
                 lualine_c = { { "filename", path = 1 } },  -- path = 1 means relative path
                 lualine_x = {
                     --{ "%S", separator = "" },
@@ -113,6 +121,13 @@ return {
                 lualine_z = { "location" },
             },
         },
+        config = function(spec, opts)
+            require("lualine").setup(opts)
+            vim.o.showmode = false
+            --vim.o.showcmdloc = "statusline"
+            --vim.o.commandheight = 0
+        end,
+
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
@@ -130,5 +145,6 @@ return {
         end,
     },
 
+    -- Kitty configuration highlighting
     "fladson/vim-kitty",
 }
