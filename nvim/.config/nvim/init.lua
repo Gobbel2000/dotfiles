@@ -19,10 +19,6 @@ vim.o.cursorline = true
 vim.o.autowriteall = true
 vim.o.textwidth = 79
 
-vim.o.showmode = false
---vim.o.showcmdloc = "statusline"
---vim.o.commandheight = 0
-
 -- Global mappings from nvim-lspconfig, but also relevant for nvim-lint
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
