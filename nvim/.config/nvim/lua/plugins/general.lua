@@ -121,6 +121,13 @@ return {
                 lualine_z = { "location" },
             },
         },
+        config = function(spec, opts)
+            require("lualine").setup(opts)
+            vim.o.showmode = false
+            --vim.o.showcmdloc = "statusline"
+            --vim.o.commandheight = 0
+        end,
+
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
