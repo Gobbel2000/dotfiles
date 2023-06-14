@@ -21,7 +21,6 @@ return {
                 }
             }
         },
-
         config = function(spec, opts)
             require("nightfox").setup(opts)
             vim.cmd.colorscheme(colorplug)

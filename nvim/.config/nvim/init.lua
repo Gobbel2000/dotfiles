@@ -18,6 +18,8 @@ vim.o.undofile = true
 vim.o.cursorline = true
 vim.o.autowriteall = true
 vim.o.textwidth = 79
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- Global mappings from nvim-lspconfig, but also relevant for nvim-lint
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
