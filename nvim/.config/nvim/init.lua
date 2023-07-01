@@ -21,6 +21,9 @@ vim.o.textwidth = 79
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- WGSL is not automatically detected (yet)
+vim.filetype.add({extension = {wgsl = "wgsl"}})
+
 -- Global mappings from nvim-lspconfig, but also relevant for nvim-lint
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
