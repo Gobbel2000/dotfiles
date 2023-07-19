@@ -33,6 +33,7 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.keymap.set('i', '<C-space>', '<C-X><C-O>')
+vim.diagnostic.config({ signs = false })
 
 -- Used to determine which colorscheme plugin to load, disabling the rest
 colorplug = "nightfox"

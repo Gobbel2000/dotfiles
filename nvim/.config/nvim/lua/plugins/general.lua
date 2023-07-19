@@ -83,7 +83,7 @@ return {
             table.insert(lint.linters.mypy.args, "--ignore-missing-imports")
             vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType", "BufWritePost" }, {
                 callback = function()
-                    require("lint").try_lint()
+                    lint.try_lint()
                 end,
             })
         end,
