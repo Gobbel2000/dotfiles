@@ -41,7 +41,6 @@ hi def link kivyWidget      Function
 hi def link kivyCanvas      special
 hi def link kivyInstruction Statement
 
-hi KivyId cterm=underline
-hi KivyPreproc cterm=bold
+hi def KivyId cterm=underline gui=underline
 
 let b:current_syntax = "kivy"

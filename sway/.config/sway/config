@@ -183,8 +183,8 @@ mode "resize" {
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Up resize grow height 10 px or 10 ppt
+        bindsym Down resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
         # smaller steps with shift
@@ -195,8 +195,8 @@ mode "resize" {
 
         # same bindings, but for the arrow keys
         bindsym shift+Left resize shrink width 5 px or 5 ppt
-        bindsym shift+Down resize grow height 5 px or 5 ppt
-        bindsym shift+Up resize shrink height 5 px or 5 ppt
+        bindsym shift+Up resize grow height 5 px or 5 ppt
+        bindsym shift+Down resize shrink height 5 px or 5 ppt
         bindsym shift+Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
@@ -337,7 +337,7 @@ input * {
 
 seat seat0 xcursor_theme breeze_cursors
 
-output $out1 mode 2560x1440@75Hz pos 0 1080 adaptive_sync on background /home/gabriel/Wallpaper/mainbg fit
+output $out1 mode 2560x1440@75Hz pos 0 1080 adaptive_sync off background /home/gabriel/Wallpaper/mainbg fit
 output $out2 mode 1920x1080 pos 2560 600 transform 270
 output $out3 mode 1920x1080 pos 0 0 transform 180 background /home/gabriel/Wallpaper/secondbg fit
 

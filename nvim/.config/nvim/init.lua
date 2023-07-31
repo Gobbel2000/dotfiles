@@ -13,11 +13,18 @@ vim.o.shiftwidth = 4
 vim.opt.langmap = { "hk", "jh", "kj" }
 vim.o.clipboard = "unnamedplus"
 vim.opt.guicursor = { "n-v-ve-i-c-ci-sm:block", "r-cr-o:hor20", "a:blinkon0" }
+-- Disable preview window when selecting completion (e.g. omnifunc)
+vim.opt.completeopt:remove { "preview" }
 vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.cursorline = true
 vim.o.autowriteall = true
 vim.o.textwidth = 79
+vim.o.number = true
+vim.o.relativenumber = true
+
+-- WGSL is not automatically detected (yet)
+vim.filetype.add({extension = {wgsl = "wgsl"}})
 
 -- Global mappings from nvim-lspconfig, but also relevant for nvim-lint
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -25,6 +32,8 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.keymap.set('i', '<C-space>', '<C-X><C-O>')
+vim.diagnostic.config({ signs = false })
 
 -- Used to determine which colorscheme plugin to load, disabling the rest
 colorplug = "nightfox"
