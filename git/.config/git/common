@@ -1,0 +1,31 @@
+# vim: ft=gitconfig
+#
+# Add the following section to `~/.config/git/config`:
+#
+#[include]
+#	path = common
+#
+# Or run:
+# $ git config --global include.path common
+
+[core]
+	editor = nvim
+[alias]
+	st = status
+	br = branch -vv
+    fa = fetch --all
+	wd = diff --word-diff=color
+[pull]
+	rebase = false
+[merge]
+	tool = nvimdiff1
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = true
+[diff "zip"]
+    textconv = unzip -c -a
+[push]
+	default = upstream
+[mergetool]
+	keepBackup = false
