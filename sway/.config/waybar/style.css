@@ -88,6 +88,7 @@ window#waybar.chromium {
 #mode {
     background-color: #64727D;
     border-bottom: 3px solid #ffffff;
+    padding: 0 5px;
 }
 
 #clock,
@@ -100,12 +101,12 @@ window#waybar.chromium {
 #pulseaudio,
 #custom-media,
 #tray,
-#mode,
 #idle_inhibitor,
 #custom-backlight,
 #mpd {
     padding: 0 5px;
     color: #ffffff;
+    margin-bottom: 3px;
 }
 
 #window,
@@ -150,13 +151,11 @@ label:focus {
 
 #network {
     background-color: #2980b9;
-    margin-top: 3px;
     margin-bottom: 3px;
 }
 
 #network.disconnected {
     background-color: #f53c3c;
-    margin-top: 3px;
     margin-bottom: 3px;
 }
 
@@ -242,7 +241,6 @@ label:focus {
     padding: 0 5px;
     /*margin: 0 5px;*/
     min-width: 16px;
-    margin-top: 3px;
     margin-bottom: 3px;
 }
 
