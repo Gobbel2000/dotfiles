@@ -273,7 +273,7 @@ bindsym $mod+shift+x exec --no-startup-id $Locker
 
 # Change keyboard layout
 bindsym Scroll_Lock input * xkb_switch_layout 0
-bindsym Shift+Scroll_Lock input * xkb_switch_layout 1
+bindsym Shift+Scroll_Lock input * xkb_switch_layout next
 
 for_window [title="Chat .*"] floating disable
 for_window [title="Password Required - Firefox.*"] floating enable
@@ -329,8 +329,8 @@ workspace number 1
 exec firefox-developer-edition
 
 input * {
-    xkb_layout "us,de"
-    xkb_variant "colemak,"
+    xkb_layout "us,us,ru"
+    xkb_variant "colemak,,phonetic"
     xkb_options "caps:escape,terminate:ctrl_alt_bksp"
     xkb_numlock enabled
 }
