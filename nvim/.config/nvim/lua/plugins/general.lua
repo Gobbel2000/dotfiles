@@ -14,7 +14,21 @@ function do_lsp_config ()
         }
     }
     lspconfig.ruff_lsp.setup {}
-    lspconfig.rust_analyzer.setup {}
+    lspconfig.rust_analyzer.setup {
+        settings = {
+            ["rust-analyzer"] = {
+                cargo = {
+                    buildScripts = {
+                        enable = true,
+                    },
+                    --target = "wasm32-unknown-unknown",
+                },
+                procMacro = {
+                    enable = true,
+                },
+            }
+        }
+    }
 
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
@@ -70,7 +84,7 @@ return {
             table.insert(lint.linters.mypy.args, "--ignore-missing-imports")
             vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType", "BufWritePost" }, {
                 callback = function()
-                    require("lint").try_lint()
+                    lint.try_lint()
                 end,
             })
         end,

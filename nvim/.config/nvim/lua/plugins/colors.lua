@@ -16,10 +16,16 @@ return {
             specs = {
                 all = {
                     syntax = {
-                        comment = "cyan.bright"
+                        comment = "cyan.bright",
                     }
                 }
-            }
+            },
+            groups = {
+                all = {
+                    -- Instead of link=Comment
+                    DiagnosticUnnecessary = { bg = "bg0" },
+                }
+            },
         },
         config = function(spec, opts)
             require("nightfox").setup(opts)

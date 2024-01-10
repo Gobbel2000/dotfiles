@@ -1,4 +1,3 @@
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source /usr/share/git/completion/git-prompt.sh
@@ -93,3 +92,5 @@ function precmd {
 if [[ -f ~/.shell-common ]]; then
     source ~/.shell-common
 fi
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
