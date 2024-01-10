@@ -4,3 +4,30 @@ fn ${1:function_name}() {
 	${0}
 }
 endsnippet
+
+snippet display "Implement fmt::Display"
+impl fmt::Display for ${1:Type} {
+	fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+		write!(f, "${2}");
+	}
+}
+endsnippet
+
+snippet debug "Implement fmt::Debug"
+impl fmt::Debug for ${1:Type} {
+	fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+		write!(f, "${2}");
+	}
+}
+endsnippet
+
+snippet aoc "Starting template for Advent of Code solutions" b
+fn part1(input: String) {
+	${0}
+}
+
+fn part2(input: String) {
+}
+
+util::aoc_main!("`!p snip.rv = fn.replace('rs', 'txt')`");
+endsnippet
