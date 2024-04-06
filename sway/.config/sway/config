@@ -338,7 +338,7 @@ input * {
 seat seat0 xcursor_theme breeze_cursors
 
 output $out1 mode 2560x1440@75Hz pos 0 1080 adaptive_sync off background /home/gabriel/Wallpaper/mainbg fit
-output $out2 mode 1920x1080 pos 2560 600 transform 270
+output $out2 mode 1920x1080 pos 2560 600 transform 270 background /home/gabriel/Wallpaper/thirdbg fit
 output $out3 mode 1920x1080 pos 0 0 transform 180 background /home/gabriel/Wallpaper/secondbg fit
 
 exec --no-startup-id xrandr --output XWAYLAND1 --primary
