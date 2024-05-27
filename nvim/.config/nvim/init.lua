@@ -22,6 +22,7 @@ vim.o.autowriteall = true
 vim.o.textwidth = 79
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.conceallevel = 2
 
 -- WGSL is not automatically detected (yet)
 vim.filetype.add({extension = {wgsl = "wgsl"}})
