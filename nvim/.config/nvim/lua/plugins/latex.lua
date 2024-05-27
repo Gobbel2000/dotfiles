@@ -11,6 +11,7 @@ return {
                 -- Put auxiliary files into 'latexmk' subdirectories
                 aux_dir = 'latexmk',
             }
+            vim.g.vimtex_syntax_conceal = { spacing = 0 }
         end,
     },
 }

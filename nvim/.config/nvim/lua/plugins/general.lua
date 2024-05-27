@@ -92,14 +92,8 @@ return {
 
     {
         "SirVer/ultisnips",
-        keys = {
-            { "<tab>", mode = "i" },
-            { "<c-s>", mode = "i" },
-        },
-        ft = { "snippets" },
         init = function()
-            vim.g.UltiSnipsExpandTrigger = "<tab>"
-            vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
+            vim.g.UltiSnipsExpandOrJumpTrigger = "<tab>"
             vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
             vim.g.UltiSnipsListSnippets = "<c-s>"
             vim.g.UltiSnipsEditSplit = "vertical"

@@ -15,6 +15,7 @@ alias tree='tree -C'
 alias kssh='kitty +kitten ssh'
 alias icat='kitty +kitten icat'
 alias e='nvim'
+alias pacdiff="sudo DIFFPROG='nvim -d' pacdiff"
 
 
 # ENVIRONMENT
