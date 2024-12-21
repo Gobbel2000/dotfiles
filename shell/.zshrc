@@ -93,4 +93,6 @@ if [[ -f ~/.shell-common ]]; then
     source ~/.shell-common
 fi
 
+[[ ! -r '/home/gabriel/.opam/opam-init/init.zsh' ]] || source '/home/gabriel/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

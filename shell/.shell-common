@@ -16,6 +16,8 @@ alias tree='tree -C'
 alias kssh='kitty +kitten ssh'
 alias icat='kitty +kitten icat'
 alias e='nvim'
+alias pacdiff="sudo DIFFPROG='nvim -d' pacdiff"
+alias normalize-name="perl-rename 's![\x00-\x1f\x7f\"*/:<>?\\\\|[\]]!!g'"
 
 
 # ENVIRONMENT
