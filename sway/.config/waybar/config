@@ -8,7 +8,8 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces#main", "sway/workspaces#vert", "sway/workspaces#third", "sway/mode"],
     //"modules-center": ["sway/window"],
-    "modules-right": ["custom/backlight", "pulseaudio", "network",
+    "modules-right": ["custom/backlight", "pulseaudio",
+        //"network",
         //"cpu", "memory",
         "temperature", "sway/language",
         "clock", "clock#UTC", "tray"],
@@ -90,7 +91,8 @@
         "format-ethernet": "{ipaddr}",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "Connecting...",
-        "format-disconnected": "Disconnected ⚠"
+        "format-disconnected": "Disconnected ⚠",
+        "family": "ipv4"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

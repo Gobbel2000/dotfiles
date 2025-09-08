@@ -331,7 +331,7 @@ exec firefox-developer-edition
 input * {
     xkb_layout "us,us,ru"
     xkb_variant "colemak,,phonetic"
-    xkb_options "caps:escape,terminate:ctrl_alt_bksp"
+    xkb_options "compose:menu,caps:escape,terminate:ctrl_alt_bksp"
     xkb_numlock enabled
 }
 
@@ -346,3 +346,7 @@ exec --no-startup-id xrandr --output XWAYLAND1 --primary
 exec_always --no-startup-id calendar_bg.sh
 
 include /etc/sway/config.d/*
+
+exec "systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK; systemctl --user start sway-session.target"
+exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+exec "systemctl --user start plasma-kded6.service"
