@@ -6,9 +6,11 @@
 set $mod Mod4
 
 # Define monitor names
-set $out1 DP-2
+#set $out1 DP-2
+#set $out2 HDMI-A-1
+#set $out3 DP-1
+set $out1 DP-1
 set $out2 HDMI-A-1
-set $out3 DP-1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -150,14 +152,14 @@ workspace 1 output $out1
 workspace 2 output $out1
 workspace 3 output $out1
 workspace 4 output $out1
-workspace 5 output $out2
+workspace 5 output $out1
 workspace 6 output $out2
 workspace 7 output $out2
 workspace 8 output $out2
-workspace 9 output $out3
-workspace 10 output $out3
-workspace 11 output $out3
-workspace 12 output $out3
+workspace 9 output $out2
+workspace 10 output $out2
+workspace 11 output $out2
+workspace 12 output $out2
 
 workspace 21 output $out1
 workspace 22 output $out3
@@ -287,6 +289,7 @@ titlebar_padding 12 1
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command /home/gabriel/programs/Waybar/build/waybar
+    #swaybar_command /usr/bin/waybar
     
     position bottom
     font DejaVu Sans 10
@@ -314,8 +317,9 @@ bindsym $mod+F4 exec --no-startup-id steam-native
 bindsym $mod+F5 exec --no-startup-id discord
 bindsym $mod+F6 exec ksysguard
 
-assign [class="discord"] 8
-assign [app_id="thunderbird"] 5
+set $comws 6
+assign [class="discord"] $comws
+assign [app_id="thunderbird"] $comws
 
 exec --no-startup-id lxsession
 #exec --no-startup-id kdeconnectd
@@ -323,7 +327,7 @@ exec --no-startup-id fix-brightness.sh 3
 exec --no-startup-id dunst
 exec --no-startup-id gammastep
 
-workspace number 8
+workspace number $comws
 exec discord
 workspace number 1
 exec firefox-developer-edition
@@ -337,13 +341,15 @@ input * {
 
 seat seat0 xcursor_theme breeze_cursors
 
-output $out1 mode 2560x1440@75Hz pos 0 1080 adaptive_sync off background /home/gabriel/Wallpaper/mainbg fit
-output $out2 mode 1920x1080 pos 2560 600 transform 270 background /home/gabriel/Wallpaper/thirdbg fit
-output $out3 mode 1920x1080 pos 0 0 transform 180 background /home/gabriel/Wallpaper/secondbg fit
+#output $out1 mode 2560x1440@75Hz pos 0 1080 adaptive_sync off background /home/gabriel/Wallpaper/mainbg fit
+#output $out2 mode 1920x1080 pos 2560 600 transform 270 background /home/gabriel/Wallpaper/thirdbg fit
+#output $out3 mode 1920x1080 pos 0 0 transform 180 background /home/gabriel/Wallpaper/secondbg fit
+output $out1 mode 1920x1080@180Hz pos 0 840 adaptive_sync on background /home/gabriel/Wallpaper/mainbg fit
+output $out2 mode 1920x1080 pos 1920 0 transform 270 background /home/gabriel/Wallpaper/thirdbg fit
 
-exec --no-startup-id xrandr --output XWAYLAND1 --primary
+exec --no-startup-id xrandr --output $out1 --primary
 
-exec_always --no-startup-id calendar_bg.sh
+#exec_always --no-startup-id calendar_bg.sh
 
 include /etc/sway/config.d/*
 
