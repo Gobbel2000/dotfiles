@@ -6,17 +6,19 @@
     // "width": 1280, // Waybar width
     "spacing": 3, // Gaps between modules
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces#main", "sway/workspaces#vert", "sway/workspaces#third", "sway/mode"],
+    "modules-left": ["sway/workspaces#main",
+        "sway/workspaces#vert",
+        "sway/mode"],
     //"modules-center": ["sway/window"],
     "modules-right": ["custom/backlight", "pulseaudio",
-        //"network",
+        "network",
         //"cpu", "memory",
         "temperature", "sway/language",
         "clock", "clock#UTC", "tray"],
     // Modules configuration
     "sway/workspaces#main": {
         //"all-outputs": true
-        "for-output": "DP-2"
+        "for-output": "DP-1"
     },
     "sway/workspaces#vert": {
         "for-output": "HDMI-A-1"
