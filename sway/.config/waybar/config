@@ -89,7 +89,8 @@
     },
     "network": {
         "format-ethernet": "{ipaddr}",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-wifi": "{essid} {frequency}GHz {signalStrength}% ",
+        "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "Connecting...",
         "format-disconnected": "Disconnected ⚠",
         "family": "ipv4"
