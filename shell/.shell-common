@@ -17,6 +17,7 @@ alias icat='kitty +kitten icat'
 alias e='nvim'
 alias pacdiff="sudo DIFFPROG='nvim -d' pacdiff"
 alias normalize-name="perl-rename 's![\x00-\x1f\x7f\"*/:<>?\\\\|[\]]!!g'"
+alias pandoca4="pandoc -V papersize=a4"
 
 
 # ENVIRONMENT
