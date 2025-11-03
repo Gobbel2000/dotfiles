@@ -16,13 +16,13 @@
     // Modules configuration
     "sway/workspaces#main": {
         //"all-outputs": true
-        "for-output": "DP-2"
+        "for-output": "DP-1"
     },
     "sway/workspaces#vert": {
         "for-output": "HDMI-A-1"
     },
     "sway/workspaces#third": {
-        "for-output": "DP-1"
+        "for-output": "DP-2"
     },
     "sway/window": {
         "all-outputs": true
