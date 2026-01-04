@@ -11,6 +11,11 @@ return {
                 aux_dir = 'latexmk',
             }
             vim.g.vimtex_syntax_conceal = { spacing = 0 }
+            vim.g.vimtex_quickfix_method = 'pplatex'
+            vim.g.vimtex_quickfix_ignore_filters = {
+                'Font shape .* not available'
+            }
+            --vim.g.vimtex_quickfix_open_on_warning = 0
         end,
     },
 }

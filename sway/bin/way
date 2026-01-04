@@ -8,8 +8,13 @@ if [ "$1" = "kde" ]; then
 fi
 
 export XDG_CURRENT_DESKTOP="sway"
+
+# KDE applications (e.g. dolphin) can't do file associations if no menu file is found.
+# This environment variable ensures the plasma menu file is used in sway.
+export XDG_MENU_PREFIX="plasma-"
+
 #export QT_QPA_PLATFORM="wayland-egl"
 #export QT_STYLE_OVERRIDE="breeze"
 export QT_QPA_PLATFORMTHEME=kde
 
-exec sway
+exec dbus-launch sway

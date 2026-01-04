@@ -1,6 +1,5 @@
 function do_lsp_config()
-    local lspconfig = require("lspconfig")
-    lspconfig.pylsp.setup({
+    vim.lsp.config("pylsp", {
         settings = {
             pylsp = {
                 plugins = {
@@ -13,8 +12,7 @@ function do_lsp_config()
             },
         },
     })
-    lspconfig.ruff.setup({})
-    lspconfig.rust_analyzer.setup({
+    vim.lsp.config("rust_analyzer", {
         settings = {
             ["rust-analyzer"] = {
                 cargo = {
@@ -29,7 +27,7 @@ function do_lsp_config()
             },
         },
     })
-    lspconfig.ocamllsp.setup({})
+    vim.lsp.enable({"pylsp", "ruff", "rust_analyzer", "ocamllsp"})
 
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
