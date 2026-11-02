@@ -32,9 +32,9 @@ bindsym $mod+space exec rofi -show run
 bindsym $mod+k exec rofi -show ssh
 
 # change focus
-bindsym $mod+n focus left
-bindsym $mod+e focus down
-bindsym $mod+u focus up
+bindsym $mod+h focus left
+bindsym $mod+n focus down
+bindsym $mod+e focus up
 bindsym $mod+i focus right
 
 # alternatively, you can use the cursor keys:
@@ -44,9 +44,9 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+N move left
-bindsym $mod+Shift+E move down
-bindsym $mod+Shift+U move up
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+N move down
+bindsym $mod+Shift+E move up
 bindsym $mod+Shift+I move right
 
 # alternatively, you can use the cursor keys:
@@ -56,7 +56,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -176,8 +176,8 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym n resize shrink width 10 px or 10 ppt
-        bindsym u resize grow height 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym n resize grow height 10 px or 10 ppt
         bindsym e resize shrink height 10 px or 10 ppt
         bindsym i resize grow width 10 px or 10 ppt
 
@@ -188,8 +188,8 @@ mode "resize" {
         bindsym Right resize grow width 10 px or 10 ppt
 
         # smaller steps with shift
-        bindsym shift+n resize shrink width 5 px or 5 ppt
-        bindsym shift+u resize grow height 5 px or 5 ppt
+        bindsym shift+h resize shrink width 5 px or 5 ppt
+        bindsym shift+n resize grow height 5 px or 5 ppt
         bindsym shift+e resize shrink height 5 px or 5 ppt
         bindsym shift+i resize grow width 5 px or 5 ppt
 
