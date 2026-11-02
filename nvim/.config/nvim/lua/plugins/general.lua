@@ -27,7 +27,7 @@ function do_lsp_config()
             },
         },
     })
-    vim.lsp.enable({"pylsp", "ruff", "rust_analyzer", "ocamllsp"})
+    vim.lsp.enable({"pylsp", "ruff", "rust_analyzer", "ocamllsp", "biome"})
 
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
