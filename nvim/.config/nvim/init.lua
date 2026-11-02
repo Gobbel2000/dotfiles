@@ -10,7 +10,13 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
 
-vim.opt.langmap = { "hk", "jh", "kj" }
+-- Retrieve homerow movement on Colemak: 
+    -- n(ext) is on k(olejny)
+    -- e(nd of word) is on j(ump to end)
+    -- i(nsert) is on l(ay down types)
+vim.opt.langmap = { "nj", "NJ", "ek", "EK", "il", "IL", "kn", "KN", "li", "LI", "je", "JE" }
+-- Alternative: Move around hjkl within each other
+--vim.opt.langmap = { "hk", "jh", "kj" }
 vim.o.clipboard = "unnamedplus"
 vim.opt.guicursor = { "n-v-ve-i-c-ci-sm:block", "r-cr-o:hor20", "a:blinkon0" }
 -- Disable preview window when selecting completion (e.g. omnifunc)

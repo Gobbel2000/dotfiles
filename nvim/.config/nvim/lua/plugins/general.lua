@@ -27,7 +27,7 @@ function do_lsp_config()
             },
         },
     })
-    vim.lsp.enable({"pylsp", "ruff", "rust_analyzer", "ocamllsp"})
+    vim.lsp.enable({"pylsp", "ruff", "rust_analyzer", "ocamllsp", "biome"})
 
     -- Use LspAttach autocommand to only map the following keys
     -- after the language server attaches to the current buffer
@@ -159,20 +159,6 @@ return {
         end,
 
         dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
-
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = function()
-            require("nvim-treesitter.install").update({ with_sync = true })
-        end,
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                highlight = {
-                    enable = true,
-                },
-            })
-        end,
     },
 
     -- Kitty configuration highlighting
